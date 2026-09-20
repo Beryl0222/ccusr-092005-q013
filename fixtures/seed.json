@@ -1,0 +1,7 @@
+{
+  "project": "跨物种单细胞资料空间",
+  "records": [
+    {"id": "dataset-sponge-choanocyte", "kind": "cell_dataset", "species": "海绵", "cell_type": "choanocyte", "gene_map_version": "ortholog-2026-04"},
+    {"id": "embedding-run-uce-17", "kind": "analysis_run", "datasets": ["dataset-sponge-choanocyte", "frog-neuron-08"], "model": "UCE", "state": "completed"}
+  ]
+}
