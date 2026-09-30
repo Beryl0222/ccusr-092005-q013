@@ -1,7 +1,73 @@
 {
   "project": "跨物种单细胞资料空间",
   "records": [
-    {"id": "dataset-sponge-choanocyte", "kind": "cell_dataset", "species": "海绵", "cell_type": "choanocyte", "gene_map_version": "ortholog-2026-04"},
-    {"id": "embedding-run-uce-17", "kind": "analysis_run", "datasets": ["dataset-sponge-choanocyte", "frog-neuron-08"], "model": "UCE", "state": "completed"}
+    {
+      "id": "dataset-sponge-choanocyte",
+      "kind": "cell_dataset",
+      "species": "海绵",
+      "cell_type": "choanocyte",
+      "gene_map_version": "ortholog-2026-04"
+    },
+    {
+      "id": "dataset-sponge-neuroid",
+      "kind": "cell_dataset",
+      "species": "海绵",
+      "cell_type": "neuroid",
+      "gene_map_version": "ortholog-2026-04"
+    },
+    {
+      "id": "frog-neuron-08",
+      "kind": "cell_dataset",
+      "species": "青蛙",
+      "cell_type": "neuron",
+      "gene_map_version": "ortholog-2026-04"
+    },
+    {
+      "id": "embedding-run-uce-17",
+      "kind": "analysis_run",
+      "datasets": [
+        "dataset-sponge-choanocyte",
+        "dataset-sponge-neuroid",
+        "frog-neuron-08"
+      ],
+      "model": "UCE",
+      "model_version": "uce-v4.2.1",
+      "state": "completed",
+      "findings": [
+        {
+          "id": "finding-uce17-choano-neuron",
+          "label": "海绵领细胞与青蛙神经元在 UCE 嵌入空间中邻近",
+          "cell_set": ["dataset-sponge-choanocyte", "frog-neuron-08"],
+          "direction": "海绵领细胞可能具备神经元样调控程序"
+        },
+        {
+          "id": "finding-uce17-neuroid-gland",
+          "label": "neuroid 细胞的邻域与标志基因指向腺体分泌功能而非神经功能",
+          "cell_set": ["dataset-sponge-neuroid"],
+          "direction": "neuroid 应归类为腺体样分泌细胞"
+        }
+      ]
+    },
+    {
+      "id": "embedding-run-uce-18",
+      "kind": "analysis_run",
+      "datasets": [
+        "dataset-sponge-choanocyte",
+        "dataset-sponge-neuroid",
+        "frog-neuron-08"
+      ],
+      "model": "UCE",
+      "model_version": "uce-v4.3.0",
+      "state": "completed",
+      "note": "换版重跑，用于审视 uce-v4.2.1 结论的稳健性",
+      "findings": [
+        {
+          "id": "finding-uce18-neuroid-revisit",
+          "label": "换版后 neuroid 与腺体邻域关系仍在，但部分神经样标志得分回升",
+          "cell_set": ["dataset-sponge-neuroid"],
+          "direction": "neuroid 功能归属对模型版本敏感"
+        }
+      ]
+    }
   ]
 }
